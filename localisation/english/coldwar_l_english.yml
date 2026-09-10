@@ -223,11 +223,14 @@
  ENG_kickstart_independent_nuclear_program: "Kickstart Independent Nuclear Program"
  ENG_churchills_four_year_plan: "Churchill's Four Year Plan"
  ENG_construct_emergency_housing: "Construct Emergency Housing"
+ ENG_reducing_debts: "Reduce Debt"
 
  #tooltips
  CW_newfoundland_to_be_merged_tt: "§YNewfoundland will merge with Canada in a year after another referendum and preparations.§!"
  CW_newfoundland_to_be_reformed_tt: "§YNewfoundland will become a Dominion in a year after another referendum and preparations.§!"
  r56_had_war_with_major: "Had war with a Major Country"
+ ENG_eco_dynamic_modifier_tt: "Modify §YReduced Military Spending§! by"
+ army_costs_reduced: "§YReduced Military Spending§!"
 
 #CZE
  #focus

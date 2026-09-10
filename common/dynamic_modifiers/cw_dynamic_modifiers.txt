@@ -4,3 +4,27 @@ mafia_domination = {
 	icon = GFX_looting_resistance_icon
 	local_factories = -0.7
 }
+
+army_costs_reduced = {
+	icon = GFX_looting_resistance_icon
+	consumer_goods_factor = ENG_eco_cons
+	consumer_goods_expected_value = ENG_eco_cons_flat
+	production_factory_max_efficiency_factor = ENG_eco_cap
+	production_speed_arms_factory_factor = ENG_eco_mils
+	production_speed_infrastructure_factor = ENG_eco_infra
+	production_speed_buildings_factor = ENG_eco_construction
+	industry_repair_factor = ENG_eco_repair
+	industrial_capacity_factory = ENG_eco_output
+	industrial_capacity_dockyard = ENG_eco_output
+	min_export = ENG_eco_min_export
+	factory_energy_consumption = ENG_eco_energy_consumption
+	army_fuel_consumption_factor = ENG_eco_fuel_cons
+	stability_factor = ENG_eco_stab
+	war_support_factor = ENG_eco_ws
+	conscription = ENG_eco_conscription
+	monthly_population = ENG_monthly_population
+	army_claim_attack_factor  = ENG_claim_attack
+	army_claim_defence_factor = ENG_claim_defence
+	experience_loss_factor = ENG_xp_loss
+	resource_trade_cost_bonus_per_factory = ENG_trade_bonus
+}

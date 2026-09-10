@@ -7586,7 +7586,14 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			
+			add_stability = 0.03
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_dynamic_modifier = { modifier = army_costs_reduced }
+			add_to_variable = {
+				var = ENG_eco_cons
+				value = -0.1
+				tooltip = consumer_goods_factor_tt
+			}				
 		}
 	}
     focus = {   #start feb 1947
@@ -7707,6 +7714,14 @@ focus_tree = {
                 }
                 set_cosmetic_tag = PAK_Dominion
             }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt
+			add_to_variable = {
+				var = ENG_eco_cons
+				value = -0.03
+				tooltip = consumer_goods_factor_tt
+			}
+		
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -7725,6 +7740,13 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 		completion_reward = {
 			release = BRM
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt 
+			add_to_variable = {
+				var = ENG_eco_cons
+				value = -0.02
+				tooltip = consumer_goods_factor_tt
+			}		
 		}
 	}
 	focus = {
@@ -7751,6 +7773,30 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = ENG_nationalize_failing_industries
 		}
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt
+			add_to_variable = {
+				var = ENG_eco_cons
+				value = 0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				var = ENG_eco_output
+				value = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}			
+			add_to_variable = {
+				var = ENG_eco_stab
+				value = 0.05
+				tooltip = stability_factor_tt
+			}
+		}
 	}
 	focus = {
 		id = ENG_nationalize_failing_industries
@@ -7773,9 +7819,34 @@ focus_tree = {
 		}
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+					}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+					}					
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt			
+			add_to_variable = {
+				var = ENG_eco_cap
+				value = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				var = ENG_eco_repair
+				value = 0.1
+				tooltip = industry_repair_factor_tt
+			}
 		}
-	}
+		}
     focus = {
 		id = ENG_establish_nhs  #1948 (46 has insurance act)
         icon = GFX_goal_medicine
@@ -7791,9 +7862,62 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt
+			add_to_variable = {
+				var = ENG_eco_cons
+				value = 0.05
+				tooltip = consumer_goods_factor_tt
+			}			
+			add_to_variable = {
+				var = ENG_eco_stab
+				value = 0.1
+				tooltip = stability_factor_tt
+			}		
+			add_to_variable = {
+				var = ENG_eco_conscription
+				value = 0.01
+				tooltip = conscription_tt
+			}			
+			add_to_variable = {
+				var = ENG_monthly_population
+				value = 0.2
+				tooltip = monthly_population_tt
+			}	
+			add_to_variable = {
+				var = ENG_xp_loss
+				value = -0.06
+				tooltip = experience_loss_factor_tt
+			}				
 		}
 	}
+    focus = {
+		id = ENG_reducing_debts  #1948
+        icon = GFX_focus_generic_price_controls
+		x = -8
+		y = 1
+		relative_position_id = ENG_nationalize_failing_industries
+		cost = 3
+
+		prerequisite = {
+			focus = ENG_nationalize_failing_industries
+			focus = ENG_churchills_four_year_plan
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt
+			add_to_variable = {
+				var = ENG_trade_bonus
+				value = 3
+				tooltip = resource_trade_cost_bonus_per_factory_tt
+			}	
+			add_to_variable = {
+				var = ENG_eco_cons
+				value = 0.02
+				tooltip = consumer_goods_factor_tt
+			}				
+		}
+	}	
     focus = {   #1950~
 		id = ENG_unify_the_steel_industry
 		icon = GFX_focus_generic_steel
@@ -7806,7 +7930,38 @@ focus_tree = {
 		cost = 3
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }			
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = steel_mill
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }			
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = steel_mill
+					level = 1
+					instant_build = yes
+				}
+			}			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = steel_tech
+			}											
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt
+			add_to_variable = { 
+				var = ENG_eco_min_export
+				value = -0.03
+				tooltip = min_export_tt
+			}
 		}
 	}
 	focus = {
@@ -7818,16 +7973,45 @@ focus_tree = {
 		relative_position_id = ENG_nationalize_failing_industries
 		cost = 3
 
-		prerequisite = {
+		prerequisite = { 
 			focus = ENG_nationalize_failing_industries
 			focus = ENG_churchills_four_year_plan
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt
+			add_to_variable = {
+				var = ENG_eco_cons
+				value = 0.05
+				tooltip = consumer_goods_factor_tt
+			}			
+			add_to_variable = {
+				var = ENG_eco_stab
+				value = 0.1
+				tooltip = stability_factor_tt
+			}		
+			add_to_variable = {
+				var = ENG_eco_ws
+				value = 0.1
+				tooltip = war_support_factor_tt
+			}						
+			add_to_variable = {
+				var = ENG_xp_loss
+				value = -0.06
+				tooltip = experience_loss_factor_tt
+			}
+			add_to_variable = {
+				var = ENG_eco_construction
+				value = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}			
 		}
 	}
     focus = {   #only in 1954
 		id = ENG_end_rationing
 		icon = GFX_FRA_VIC_rationing
 		relative_position_id = ENG_construct_emergency_housing
-		x = 1
+		x = 0
 		y = 1
 		cost = 3
 		prerequisite = {
@@ -7836,8 +8020,31 @@ focus_tree = {
 		prerequisite = {
 			focus = ENG_establish_nhs
 		}
+		prerequisite = {
+			focus = ENG_reducing_debts
+		}		
 		completion_reward = {
-			
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt		
+			add_to_variable = {
+				var = ENG_eco_cons
+				value = 0.04
+				tooltip = consumer_goods_factor_tt
+			}			
+			add_to_variable = {
+				var = ENG_eco_cap
+				value = 0.1
+				tooltip = production_factory_max_efficiency_factor_tt
+			}	
+			add_to_variable = {
+				var = ENG_eco_output
+				value = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}					
+			add_to_variable = {
+				var = ENG_eco_ws
+				value = 0.1
+				tooltip = war_support_factor_tt
+			}						
 		}
         search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 	}
@@ -7859,6 +8066,13 @@ focus_tree = {
 		completion_reward = {
 			release = JOR
             give_guarantee = JOR
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt 
+			add_to_variable = {
+				var = ENG_eco_cons
+				value = -0.03
+				tooltip = consumer_goods_factor_tt
+			}			
 		}
 	}
     focus = {   #Feb 1947 withdrawal, maybe delay?
@@ -7902,6 +8116,13 @@ focus_tree = {
                     }
                 }
             }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ENG_eco_dynamic_modifier_tt 
+			add_to_variable = {
+				var = ENG_eco_cons
+				value = -0.02
+				tooltip = consumer_goods_factor_tt
+			}			
 		}
 	}
     focus = {
